@@ -1,0 +1,60 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IA Exercicio 01</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="card col-6">
+                <div class="card-body">
+                    <h1>Inteligencia Artificial</h1>
+
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <label for="">Número de entradas e pesos</label>
+                            <input id="numeroDeEntradasEPesos" onkeyup="adicionaInput()" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row" id="inputPesos">
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="funcaoIntegracao">Função de Integração</label>
+                        <select name="" id="" class="form-control">
+                            <option value="funcaoRampa">Rampa</option>
+                            <option value="limiteRapido">Limite Rápido</option>
+                            <option value="funcaoSigmoide">Sigmoide</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn float-right" onclick="calcular()">Calcular</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-6">
+                    <h3>Resultado</h3>
+                    <div class="result"></div>
+                </div>
+        </div>
+        <br>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
