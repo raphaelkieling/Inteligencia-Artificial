@@ -1,0 +1,16 @@
+{
+  "name": "e3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "image-brain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs-promise": "^2.0.3",
+    "jimp": "^0.2.28"
+  }
+}

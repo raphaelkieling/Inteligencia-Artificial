@@ -6,6 +6,7 @@ function calcular() {
   const resultadoPesos = processaPesos(entradas);
   const resultadoSoma = somatorio(resultadoPesos);
   const resultadoFinal = calculoDependendoDoTipo(tipoOperacao, resultadoSoma);
+  document.getElementById('result').textContent = resultadoFinal;
 }
 
 function calculoDependendoDoTipo(tipoOperacao, valor) {
