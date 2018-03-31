@@ -33,21 +33,26 @@ function isWhite(rgba) {
     }
 }
 
-function lerImagensEPegarBinario(imagens) {
-    Jimp.read(imagens[0], function (err, image) {
+function getBinary(imagemPath, cb) {
+
+    Jimp.read(imagemPath, function (err, image) {
         if (err) throw err;
-        const cX = 50;
-        const cY = 80;
-        const jump = 5;
+
+        const cX = image.bitmap.width;
+        const cY = image.bitmap.height;
+
+        const jumpX = parseInt(cX / 25);
+        const jumpY = parseInt(cY / 20);
+
         let binary = [];
 
-        for (let y = jump; y <= cY; y += jump) {
+        for (let y = jumpY; y <= cY; y += jumpY) {
             let lineBinary = [];
-            for (let x = jump; x <= cX; x += jump) {
+            for (let x = jumpX; x <= cX; x += jumpX) {
                 let pretos = 0;
 
-                for (let xDentro = (x - jump); xDentro < x; xDentro++) {
-                    for (let yDentro = (y - jump); yDentro < y; yDentro++) {
+                for (let xDentro = (x - jumpX); xDentro < x; xDentro++) {
+                    for (let yDentro = (y - jumpY); yDentro < y; yDentro++) {
                         let pixelColor = Jimp.intToRGBA(image.getPixelColor(xDentro, yDentro));
 
                         if (!isWhite(pixelColor)) {
@@ -62,15 +67,16 @@ function lerImagensEPegarBinario(imagens) {
                     lineBinary.push(0);
                 }
             }
-
             binary.push(lineBinary);
         }
-        console.log(binary);
+
+        cb(binary);
     });
 }
 
-colocarImagensEmPretoEBranco();
 
-pegaImagensDaPasta('./src', (imagens) => {
-    lerImagensEPegarBinario(imagens);
-})
+module.exports = {
+    colocarImagensEmPretoEBranco,
+    pegaImagensDaPasta,
+    getBinary
+}
