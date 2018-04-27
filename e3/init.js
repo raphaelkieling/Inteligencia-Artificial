@@ -12,13 +12,9 @@ const {
 colocarImagensEmPretoEBranco();
 
 pegaImagensDaPasta('./src', (imagens) => {
-    // imagens.forEach((imagem) => {
-    //     getBinary(imagem, binario => {
-    //         init(binario);
-    //     });
-    // })
-
-    getBinary(imagens[0], binario => {
-        init(binario);
+    imagens.forEach((imagem) => {
+        getBinary(imagem, binario => {
+            console.log(binario);
+        });
     })
 })
